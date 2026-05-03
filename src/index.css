@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-base:       #0a0e1a;
+  --bg-surface:    #111827;
+  --bg-card:       #1a2235;
+  --bg-hover:      #1f2d45;
+
+  --accent:        #3b82f6;
+  --accent-dim:    #1d4ed8;
+  --accent-glow:   rgba(59,130,246,0.15);
+
+  --green:         #22c55e;
+  --green-bg:      rgba(34,197,94,0.12);
+  --orange:        #f97316;
+  --orange-bg:     rgba(249,115,22,0.12);
+  --red:           #ef4444;
+  --red-bg:        rgba(239,68,68,0.12);
+
+  --text-primary:  #f1f5f9;
+  --text-secondary:#94a3b8;
+  --text-muted:    #475569;
+
+  --border:        #1e2d45;
+  --border-bright: #2d4060;
+
+  --radius:        8px;
+  --radius-lg:     12px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global spin — components reference this, no local @keyframes needed */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { min-height: 100vh; background: var(--bg-base); display: block; }
+
+h1 { font-size: 1.6rem; font-weight: 600; color: var(--text-primary); }
+h2 { font-size: 1.2rem; font-weight: 600; color: var(--text-primary); }
+h3 { font-size: 1rem;   font-weight: 500; color: var(--text-secondary); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: #60a5fa; }
+
+button {
+  border-radius: var(--radius);
+  border: 1px solid var(--border-bright);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+button:hover:not(:disabled) { background: var(--bg-hover); border-color: var(--accent); }
+button:disabled              { cursor: not-allowed; }
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius);
+  outline: none;
+}
+input:focus, select:focus { border-color: var(--accent); }
+
+table { border-collapse: collapse; width: 100%; }
+
+/* Reusable spinner class — use className="spinner" on any span */
+.spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--border-bright);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+
+code, .mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
