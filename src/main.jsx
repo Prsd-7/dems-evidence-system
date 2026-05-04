@@ -1,10 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+// main.jsx — entry point
+// ThemeProvider wraps the whole app so every component can access theme state
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App"
+import { ThemeProvider } from "./ThemeContext"
+import "./index.css"
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
 )
